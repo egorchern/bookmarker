@@ -2,6 +2,7 @@
 <html>
     <head>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
         <link rel=stylesheet href="Main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,13 +10,30 @@
          src="https://code.jquery.com/jquery-3.5.0.js"
          integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
          crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script type = "text/javascript" src="myscript.js"></script>
         <link rel="icon" href="bookmarkIcon.png">
         <title>Bookmarker</title>
     </head>
     <body>
-        <div class="row" style="padding-top: 2vh">
+        
+       
+			
+	   <div class="" style="text-align: center; margin-top:1.5vh">
+          <button class="icon-btn add-btn" id="plusBtn" onclick="changeDisplayAddForm()">
+            <div class="add-icon"></div>
+            <div class="btn-txt">Add</div>
+          </button>
+        </div>
+	 
+        <div class="row" id="alertMessageContainer">
+            
+        </div>
+        
+        <div class="row" style="margin-top: 2vh" id="addFormContainer">
+            
             <div class="col-lg-2 col-md-1 col-0"></div>
+            
             <div class="col-lg-8 col-md-10 col-12" id="addBookmarkForm">
                 
                 
@@ -39,5 +57,6 @@
             </div>
             <div class="col-lg-2 col-md-1 col-0"></div>
         </div>
+        sfsfsa
     </body>
 </html>
