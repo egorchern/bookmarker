@@ -260,8 +260,22 @@ body {
   border-radius: 0.45rem;
 }
 
+.mainFlexible-item-nohover {
+  background-color: white;
+  padding: 30px;
+  margin: 15px;
+  text-align: center;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: 1.5px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.45rem;
+}
+
 #mainContainer {
   margin-top: 4vh;
+}
+
+#alertMessageContainer {
+  margin-top: 0.5rem;
 }
 
 /*# sourceMappingURL=Main.css.map */
