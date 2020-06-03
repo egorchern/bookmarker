@@ -6,6 +6,7 @@ var cookieCounter = 0;
 var allCookies = Cookies.get();
 var CookieNames = Object.keys(allCookies);
 var cookieName = CookieNames[CookieNames.length - 1];
+/*
 if (cookieName == undefined){
     cookieCounter = 1;
 }
@@ -13,11 +14,24 @@ else{
     var lastCounter = Number(cookieName[cookieName.length - 1]);
     cookieCounter = lastCounter + 1;
 }
+*/
 
 var alarmRaised = false;
 var bookmarkList = [];
 populateBookmarkList();
+refreshCookies();
 displayAllBookmarks();
+function refreshCookies(){
+    for (var i = 0; i < CookieNames.length; i++){
+        Cookies.remove(CookieNames[i]);
+        
+    }
+    for (var i = 0; i < bookmarkList.length; i++){
+        var cur = bookmarkList[i];
+        addCookieBookmark(cur[0],cur[1],cur[2]);
+        
+    }
+}
 var deletionMode = false;
 function addClickEvent(){
     Bname = $("#name").val();
