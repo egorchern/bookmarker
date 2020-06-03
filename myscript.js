@@ -66,7 +66,7 @@ function addClickEvent(){
 }
 function addCookieBookmark(Bname, Bcategory, Burl){
     var arr = [Bname,Bcategory,Burl];
-    Cookies.set("bookmark" + String(cookieCounter), arr, {expires: 10000});
+    Cookies.set("bookmark" + String(cookieCounter), arr, {expires: 2000});
     cookieCounter++;
     
 }
