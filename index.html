@@ -1,80 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        
-        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-        <link rel=stylesheet href="Main.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <script
-         src="https://code.jquery.com/jquery-3.5.0.js"
-         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
-         crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        <script type = "text/javascript" src="myscript.js"></script>
-        <link rel="icon" href="bookmarkIcon.png">
-        <title>Bookmarker</title>
-    </head>
-    <body>
-        
-       
-			
-	   <div  style="text-align: center; margin-top:1.5vh">
-          <button class="icon-btn add-btn" id="plusBtn" onclick="changeDisplayAddForm()" >
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108190186-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-108190186-3');
+
+    </script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <link rel=stylesheet href="Main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="myscript.js"></script>
+    <link rel="icon" href="bookmarkIcon.png">
+    <title>Bookmarker</title>
+</head>
+
+<body>
+
+
+
+    <div style="text-align: center; margin-top:1.5vh">
+        <button class="icon-btn add-btn" id="plusBtn" onclick="changeDisplayAddForm()">
             <div class="add-icon"></div>
             <div class="btn-txt">Add</div>
-          </button>
-           <button class="icon-btn add-btn" id="minusBtn" onclick="removeBookmarkBtnPress()" style = "margin-left:5px">
+        </button>
+        <button class="icon-btn add-btn" id="minusBtn" onclick="removeBookmarkBtnPress()" style="margin-left:5px">
             <div class="remove-icon"></div>
             <div class="btn-txt">Remove</div>
-          </button>
-        </div>
-	 
-        <div class="row" id="alertMessageContainer">
-            
-        </div>
-        
-        <div class="row" style="margin-top: 2vh" id="addFormContainer">
-            
-            <div class="col-lg-2 col-md-1 col-0"></div>
-            
-            <div class="col-lg-8 col-md-10 col-12" id="addBookmarkForm">
-                
-                
-                <p class="heading">Add new bookmark</p>
-                <div id="adderForm">
-                    <div class="form-label-group">
-                        <input type="text" id="name" placeholder="Name" required autofocus>
-                        
-                    </div>
-                    
-                    <input type="text" id="category" placeholder="Category">
-                    <input type="text" id="urlHolder" placeholder="URL">
-                    
+        </button>
+    </div>
+
+    <div class="row" id="alertMessageContainer">
+
+    </div>
+
+    <div class="row" style="margin-top: 2vh" id="addFormContainer">
+
+        <div class="col-lg-2 col-md-1 col-0"></div>
+
+        <div class="col-lg-8 col-md-10 col-12" id="addBookmarkForm">
+
+
+            <p class="heading">Add new bookmark</p>
+            <div id="adderForm">
+                <div class="form-label-group">
+                    <input type="text" id="name" placeholder="Name" required autofocus>
+
                 </div>
-                <div style="width:40%; margin-left:auto; margin-right: auto; margin-top:3.5vh; margin-bottom:10px">
-                    <button class="button" id="addBookmark_btn" onclick="addClickEvent()">Add</button>
-                    
-                </div>
-                    
-                
-                
+
+                <input type="text" id="category" placeholder="Category">
+                <input type="text" id="urlHolder" placeholder="URL">
+
             </div>
-            <div class="col-lg-2 col-md-1 col-0"></div>
-        </div>
-        <div class="row" id="mainContainer">
-            <div class="col-lg-2 col-md-1 col-0"></div>
-            <div class="col-lg-8 col-md-10 col-12" id="mainFlexible">
-                
-                
-            
-                
-                
-                
+            <div style="width:40%; margin-left:auto; margin-right: auto; margin-top:3.5vh; margin-bottom:10px">
+                <button class="button" id="addBookmark_btn" onclick="addClickEvent()">Add</button>
+
             </div>
-            <div class="col-lg-2 col-md-1 col-0"></div>
+
+
+
         </div>
-        
-        
-    </body>
+        <div class="col-lg-2 col-md-1 col-0"></div>
+    </div>
+    <div class="row" id="mainContainer">
+        <div class="col-lg-2 col-md-1 col-0"></div>
+        <div class="col-lg-8 col-md-10 col-12" id="mainFlexible">
+
+
+
+
+
+
+        </div>
+        <div class="col-lg-2 col-md-1 col-0"></div>
+    </div>
+
+
+</body>
+
 </html>
