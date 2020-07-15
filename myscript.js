@@ -94,7 +94,7 @@ function populateBookmarkList() {
         var currentEntry = raw[i];
         var temp = currentEntry.split(",");
         var patt = /^GA(.)+$/;
-        if (patt.test(temp[0]) === false) {
+        if (patt.test(temp[0]) === false && temp[0] != 1 && temp[1] != "" && temp[2] != "") {
             bookmarkList.push(temp);
         }
 
