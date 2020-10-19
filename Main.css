@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 #addBookmarkForm {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   border: 1.5px solid rgba(0, 0, 0, 0.125);
@@ -26,7 +27,8 @@
 
 * {
   font-size: calc(14px + 0.15vw);
-  font-family: sans-serif;
+  font-family: "Roboto";
+  
 }
 
 img {
@@ -76,7 +78,7 @@ body {
   border: 1px solid #ced4da;
   border-radius: 0.35rem;
   padding: 8px;
-  font: 400 calc(14px + 0.15vw) Arial;
+  font-size: calc(14px + 0.15vw);
 }
 #adderForm input:focus {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;

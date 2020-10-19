@@ -1,36 +1,13 @@
 var addFormState = false;
-var cookieCounter = 0;
-var allCookies = Cookies.get();
-var CookieNames = Object.keys(allCookies);
-var cookieName = CookieNames[CookieNames.length - 1];
-/*
-if (cookieName == undefined){
-    cookieCounter = 1;
-}
-else{
-    var lastCounter = Number(cookieName[cookieName.length - 1]);
-    cookieCounter = lastCounter + 1;
-}
-*/
+
 
 var alarmRaised = false;
 var bookmarkList = [];
 populateBookmarkList();
-refreshCookies();
-displayAllBookmarks();
 
-function refreshCookies() {
-    for (var i = 0; i < CookieNames.length; i++) {
-        Cookies.remove(CookieNames[i]);
 
-    }
-    for (var i = 0; i < bookmarkList.length; i++) {
-        var cur = bookmarkList[i];
 
-        addCookieBookmark(cur[0], cur[1], cur[2]);
 
-    }
-}
 var deletionMode = false;
 
 function addClickEvent() {
@@ -40,7 +17,7 @@ function addClickEvent() {
     if (Bname != "" && Bcategory != "" && Burl != "") {
 
 
-        addCookieBookmark(Bname, Bcategory, Burl);
+        addLocalStorageBookmark(Bname, Bcategory, Burl);
         if (alarmRaised == false) {
 
 
@@ -76,29 +53,28 @@ function addClickEvent() {
     }
 }
 
-function addCookieBookmark(Bname, Bcategory, Burl) {
-    var arr = [Bname, Bcategory, Burl];
-    Cookies.set("bookmark" + String(cookieCounter), arr, {
-        expires: 2000
-    });
-    cookieCounter++;
+function addLocalStorageBookmark(Bname, Bcategory, Burl) {
+    //TODO add
+    let arr = [Bname, Bcategory, Burl];
+    bookmarkList.push(arr);
+    push_bookmarkList();
+    populateBookmarkList();
 
 }
 
-
+function push_bookmarkList(){
+    let jsoned = JSON.stringify(bookmarkList);
+    localStorage.setItem("bookmarks", jsoned);
+}
 
 function populateBookmarkList() {
-    var raw = Object.values(allCookies);
-    for (var i = 0; i < raw.length; i++) {
-
-        var currentEntry = raw[i];
-        var temp = currentEntry.split(",");
-        var patt = /^GA(.)+$/;
-        if (patt.test(temp[0]) === false && temp[0] != 1 && temp[1] != "" && temp[2] != "") {
-            bookmarkList.push(temp);
-        }
-
+    let jsoned = localStorage.getItem("bookmarks");
+    if(jsoned === null){
+        jsoned = "[]";
     }
+    let arr = JSON.parse(jsoned);
+    bookmarkList = arr;
+    displayAllBookmarks();
 }
 
 function changeDisplayAddForm() {
@@ -134,24 +110,26 @@ function openBookmark(callerId) {
 
         window.open(link);
     } else {
-        var nameToRemove = CookieNames[index];
-        Cookies.remove(nameToRemove);
-
-        document.getElementById("bk" + String(index)).onclick = function () {
-            return false
-        };
-        $('#bk' + String(index)).attr("class", "mainFlexible-item-nohover");
+        bookmarkList.splice(index, 1);
+        push_bookmarkList();
+        displayAllBookmarks();
+        
     }
+}
+
+function re_order_bookmark_list(order){
+    
 }
 
 function displayAllBookmarks() {
     $(document).ready(function () {
+        $("#mainFlexible").empty();
         for (var i = 0; i < bookmarkList.length; i++) {
             currentList = bookmarkList[i];
             var tmp = `<div class="mainFlexible-item" id="bk${i}" onclick="openBookmark(this.id)">
                     <p style="font-size: calc(20px + 1vw)">${currentList[0]}</p>
                     <p style="font-size: calc(18.5px + 0.3vw)">Category: ${currentList[1]}</p>
-                    <p>Link: ${currentList[2]}</p>
+                    <p style="margin-bottom:5px">Link: ${currentList[2]}</p>
                     </div>`;
 
 
