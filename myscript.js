@@ -22,14 +22,15 @@ function addClickEvent() {
 
 
             $(document).ready(function () {
-                $("#alertMessageContainer").prepend("<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\" id=\"bookmarkAlert\" style=\"width:100%;margin:auto;margin-top:10px;max-width:600px;\">Bookmark <strong>successfully</strong> saved! Refresh the page to display the bookmark<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\" style=\"font-size:24px\">&times;</span></button></div>");
+                
+                push_alert("success", "Bookmark <strong>successfully</strong> saved!");
                 alarmRaised = true;
             });
         } else {
             $(document).ready(function () {
                 $("#bookmarkAlert").remove();
-                $("#alertMessageContainer").prepend("<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\" id=\"bookmarkAlert\" style=\"width:100%;margin:auto;margin-top:10px;max-width:600px;\">Bookmark <strong>successfully</strong> saved!  Refresh the page to display the bookmark<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\" style=\"font-size:24px\">&times;</span></button></div>");
-
+                
+                push_alert("success", "Bookmark <strong>successfully</strong> saved!");
             });
         }
         $("#name").val("");
@@ -40,19 +41,30 @@ function addClickEvent() {
 
 
             $(document).ready(function () {
-                $("#alertMessageContainer").prepend("<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\" id=\"bookmarkAlert\" style=\"width:100%;margin:auto;margin-top:10px;max-width:600px;\">Bookmark addition <strong>failed!</strong>\nMake sure all fields are filled<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\" style=\"font-size:24px\">&times;</span></button></div>");
+               
+                push_alert("danger", "Bookmark addition <strong>failed!</strong>\nMake sure all fields are filled");
                 alarmRaised = true;
             });
         } else {
             $(document).ready(function () {
                 $('#bookmarkAlert').remove();
-                $("#alertMessageContainer").prepend("<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\" id=\"bookmarkAlert\" style=\"width:100%;margin:auto;margin-top:10px;max-width:600px;\">Bookmark addition <strong>failed!</strong>\nMake sure all fields are filled<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\" style=\"font-size:24px\">&times;</span></button></div>");
-
+                
+                push_alert("danger", "Bookmark addition <strong>failed!</strong>\nMake sure all fields are filled");
             });
         }
     }
 }
 
+function push_alert(category, text, dismissable = true){
+    if(dismissable === true){
+
+    
+        $("#alertMessageContainer").prepend(`<div class=\"alert alert-${category} alert-dismissible fade show\" role=\"alert\" id=\"bookmarkAlert\" style=\"width:100%;margin:auto;margin-top:10px;max-width:600px;\">${text}<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\" style=\"font-size:24px\">&times;</span></button></div>`);
+    }
+    else{
+        $("#alertMessageContainer").prepend(`<div class=\"alert alert-${category}  fade show\" role=\"alert\" id=\"bookmarkAlert\" style=\"width:100%;margin:auto;margin-top:10px;max-width:600px;\">${text}</div>`);
+    }
+}
 function addLocalStorageBookmark(Bname, Bcategory, Burl) {
     //TODO add
     let arr = [Bname, Bcategory, Burl];
@@ -201,8 +213,8 @@ function removeBookmarkBtnPress() {
 
 
         $(document).ready(function () {
-            $("#alertMessageContainer").prepend("<div class=\"alert alert-danger  fade show\" role=\"alert\" id=\"bookmarkAlert\" style=\"width:100%;margin:auto;margin-top:10px;max-width:600px;\">Bookmark deletion mode <strong>activated!</strong> Click on the bookmarks that you want to delete. Click on the remove button again to exit deletion mode</div>");
-
+            
+            push_alert("danger", "Bookmark deletion mode <strong>activated!</strong> Click on the bookmarks that you want to delete. Click on the remove button again to exit deletion mode", false);
         });
 
 
@@ -213,7 +225,8 @@ function removeBookmarkBtnPress() {
             changeDisplayAddForm()
         };
         $("#alertMessageContainer").empty();
-        $("#alertMessageContainer").prepend("<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\" id=\"bookmarkAlert\" style=\"width:100%;margin:auto;margin-top:10px;max-width:600px;\">Bookmark deletion mode is now <strong>disabled!</strong> Refresh the page to update bookmark display<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\" style=\"font-size:24px\">&times;</span></button></div>");
+        
+        push_alert("success", "Bookmark deletion mode is now <strong>disabled</strong>!");
     }
 
 }
