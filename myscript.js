@@ -118,6 +118,51 @@ function openBookmark(callerId) {
 }
 
 function re_order_bookmark_list(order){
+    let length = bookmarkList.length;
+    let jsoned = `[${order}]`;
+    let order_arr;
+    try{
+        order_arr = JSON.parse(jsoned);
+
+    }
+    catch{
+        console.log("only numbers are allowed");
+    }
+    if(order_arr.length != length){
+        console.log("too much or too litle characters");
+    }
+            
+    let counter = 0;
+    let anomaly_found = false;
+    while(counter < length){
+        let counter_found = order_arr.includes(counter);
+        if(counter_found === false){
+            anomaly_found = true;
+            break;
+        }
+        counter += 1;
+    }
+    if(anomaly_found === true){
+        console.log("anomaly");
+    }
+    let new_bookmark_list = [];
+    for(let i = 0; i < length; i += 1){
+        new_bookmark_list.push("[]");
+    }
+    for(let i = 0; i < length; i += 1){
+        let new_index;
+        for(let j = 0; j < length; j += 1){
+            if (order_arr[j] === i){
+                new_index = j;
+            }
+        }
+        
+        new_bookmark_list[new_index] = bookmarkList[i];
+
+    }
+    bookmarkList = new_bookmark_list;
+    push_bookmarkList();
+    displayAllBookmarks();
     
 }
 
