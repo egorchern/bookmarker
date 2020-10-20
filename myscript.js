@@ -1,5 +1,5 @@
 var addFormState = false;
-
+let order_form_state = false;
 
 var alarmRaised = false;
 var bookmarkList = [];
@@ -56,6 +56,7 @@ function addClickEvent() {
 }
 
 function push_alert(category, text, dismissable = true){
+    $("#alertMessageContainer").empty();
     if(dismissable === true){
 
     
@@ -88,10 +89,32 @@ function populateBookmarkList() {
     bookmarkList = arr;
     displayAllBookmarks();
 }
+function hide_all_menus(){
+    $(".menu").fadeOut();
+}
+function change_display_order_form(){
+    if (order_form_state == false) {
+        order_form_state = true;
+        hide_all_menus();
+        $("#order_container").fadeIn();
+        $("#alertMessageContainer").empty();
+        $("#alertMessageContainer").show();
+
+    } else {
+        order_form_state = false;
+        $("#order_container").fadeOut();
+
+        $("#alertMessageContainer").empty();
+
+
+
+    }
+}
 
 function changeDisplayAddForm() {
     if (addFormState == false) {
         addFormState = true;
+        hide_all_menus();
         $("#addFormContainer").fadeIn();
         $("#alertMessageContainer").empty();
         $("#alertMessageContainer").show();
@@ -128,7 +151,10 @@ function openBookmark(callerId) {
         
     }
 }
-
+function re_order_click_handle(){
+    let order = $("#order").val();
+    re_order_bookmark_list(order);
+}
 function re_order_bookmark_list(order){
     let length = bookmarkList.length;
     let jsoned = `[${order}]`;
@@ -138,10 +164,12 @@ function re_order_bookmark_list(order){
 
     }
     catch{
-        console.log("only numbers are allowed");
+        push_alert("danger", "Only numbers are allowed between commas");
+        return false;
     }
     if(order_arr.length != length){
-        console.log("too much or too litle characters");
+        push_alert("danger", "The order is too short or too long");
+        return false;
     }
             
     let counter = 0;
@@ -155,7 +183,8 @@ function re_order_bookmark_list(order){
         counter += 1;
     }
     if(anomaly_found === true){
-        console.log("anomaly");
+        push_alert("danger", "The order does not contain all indexes");
+        return false;
     }
     let new_bookmark_list = [];
     for(let i = 0; i < length; i += 1){
@@ -206,7 +235,10 @@ function removeBookmarkBtnPress() {
         document.getElementById("plusBtn").onclick = function () {
             return false
         };
-        $("#addFormContainer").fadeOut();
+        document.getElementById("order_btn").onclick = function () {
+            return false
+        };
+        hide_all_menus();
         addFormState = false;
         $("#alertMessageContainer").empty();
 
@@ -223,6 +255,9 @@ function removeBookmarkBtnPress() {
         deletionMode = false;
         document.getElementById("plusBtn").onclick = function () {
             changeDisplayAddForm()
+        };
+        document.getElementById("order_btn").onclick = function () {
+            change_display_order_form();
         };
         $("#alertMessageContainer").empty();
         

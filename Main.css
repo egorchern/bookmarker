@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-#addBookmarkForm {
+#addBookmarkForm, #order_form {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   border: 1.5px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.45rem;
@@ -17,7 +17,7 @@
   user-select: none;
 }
 
-#adderForm input:focus {
+#adderForm input:focus, #order_form input:focus {
   color: #495057;
   background-color: #fff;
   border-color: #80bdff;
@@ -32,13 +32,11 @@
 }
 
 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
 }
 
 p {
-  word-break: break-all;
+  word-break: break-word;
 }
 
 body {
@@ -49,7 +47,7 @@ body {
   padding: 0;
 }
 
-#addBookmarkForm {
+#addBookmarkForm, #order_form {
   background-color: white;
   padding: 20px;
   width: 100%;
@@ -73,7 +71,7 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
-#adderForm input {
+#adderForm input, #order_form input {
   width: 100%;
   border: 1px solid #ced4da;
   border-radius: 0.35rem;
@@ -188,7 +186,7 @@ body {
   top: calc(50% - 2px);
 }
 
-#addFormContainer {
+#addFormContainer, #order_container {
   display: none;
 }
 
@@ -299,7 +297,7 @@ body {
 }
 @media screen and (max-width: 600px) {
   #mainFlexible {
-    padding: 40px;
+    padding: 25px;
     grid-template-columns: 1fr;
   }
 }
