@@ -282,7 +282,7 @@ body {
   border: 1.5px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.45rem;
 }
-
+/* added */
 #mainContainer {
   margin-top: 3vh;
   display:flex;
