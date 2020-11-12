@@ -203,6 +203,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   /*grid-auto-rows: 1fr; */
   padding: 15px;
+  
 }
 
 .button {
@@ -264,7 +265,7 @@ body {
 .mainFlexible-item {
   background-color: white;
   padding: 30px;
-  margin: 15px;
+  margin: 12px;
   text-align: center;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   border: 1.5px solid rgba(0, 0, 0, 0.125);
@@ -283,7 +284,12 @@ body {
 }
 
 #mainContainer {
-  margin-top: 4vh;
+  margin-top: 3vh;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
 }
 
 #alertMessageContainer {
