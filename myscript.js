@@ -3,6 +3,8 @@ let order_form_state = false;
 
 var alarmRaised = false;
 var bookmarkList = [];
+let theme_switch_btn;
+
 populateBookmarkList();
 
 

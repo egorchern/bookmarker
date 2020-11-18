@@ -1,4 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+html, body{
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+#body_wrapper{
+  width:100%;
+  height:100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: hsl(0,0%,94%);
+}
+#body_wrapper.dark_theme{
+  background-color: hsl(0, 0%, 9%);
+}
+.mainFlexible-item {
+  background-color: white;
+  padding: 30px;
+  margin: 12px;
+  text-align: center;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: 1.5px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.45rem;
+}
+
+#body_wrapper.dark_theme .mainFlexible-item{
+  background-color: hsla(0,0%,35%);
+  
+}
+
+*{
+  font-size: calc(14px + 0.15vw);
+  font-family: "Roboto";
+}
+#body_wrapper.dark_theme p{
+  color:white;
+}
+#theme_switch_btn{
+  cursor:pointer;
+  color: black;
+  width: 2vw;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  min-width:25px;
+}
+#body_wrapper.dark_theme #theme_switch_btn{
+  color: white;
+}
+
+
+
 #addBookmarkForm, #order_form {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   border: 1.5px solid rgba(0, 0, 0, 0.125);
@@ -25,11 +79,8 @@
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-* {
-  font-size: calc(14px + 0.15vw);
-  font-family: "Roboto";
-  
-}
+
+
 
 img {
   max-width: 100%;
@@ -53,6 +104,9 @@ body {
   width: 100%;
   margin: auto;
   max-width: 600px;
+}
+#body_wrapper.dark_theme #addBookmarkForm, #body_wrapper.dark_theme #order_form{
+  background-color: hsla(0,0%,35%);
 }
 
 .heading {
@@ -101,7 +155,9 @@ body {
   position: relative;
   transition: width 0.2s ease-in-out;
 }
-
+#body_wrapper.dark_theme .icon-btn {
+  border: 1px solid hsl(0, 0%, 9%);
+}
 .add-btn:hover {
   width: 120px;
 }
@@ -260,29 +316,14 @@ body {
 .mainFlexible-item:hover {
   cursor: pointer;
   box-shadow: 0px 0px 6px 3px #F9BB00;
+  
+  
+}
+#body_wrapper.dark_theme .mainFlexible-item:hover{
+  box-shadow: 0px 0px 6px 5.5px #F9BB00;
 }
 
-.mainFlexible-item {
-  background-color: white;
-  padding: 30px;
-  margin: 12px;
-  text-align: center;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  border: 1.5px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.45rem;
-}
 
-.mainFlexible-item-nohover {
-  background-color: white;
-  padding: 30px;
-  /*margin:15px;*/
-  max-width: 100%;
-  text-align: center;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  border: 1.5px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.45rem;
-}
-/* added */
 #mainContainer {
   margin-top: 3vh;
   display:flex;
@@ -308,4 +349,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=Main.css.map */
+
