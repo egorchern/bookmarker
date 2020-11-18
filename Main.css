@@ -27,7 +27,9 @@ html, body{
 }
 
 #body_wrapper.dark_theme .mainFlexible-item{
-  background-color: hsla(0,0%,33%);
+  background-color: hsla(0,0%,31%);
+  box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.075);
+  border: 1.5px solid rgba(255, 255, 255, 0.090);
   
 }
 
@@ -51,13 +53,6 @@ html, body{
   color: white;
 }
 
-
-
-#addBookmarkForm, #order_form {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-  border: 1.5px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.45rem;
-}
 
 #addBookmark_btn {
   -moz-user-select: -moz-none;
@@ -85,6 +80,9 @@ html, body{
 img {
   max-width: 100%;
 }
+#body_wrapper.dark_theme img{
+  filter: brightness(0.9) contrast(1.2);
+}
 
 p {
   word-break: break-word;
@@ -99,6 +97,9 @@ body {
 }
 
 #addBookmarkForm, #order_form {
+  border-radius: 0.45rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.125);
   background-color: white;
   padding: 20px;
   width: 100%;
@@ -106,7 +107,10 @@ body {
   max-width: 600px;
 }
 #body_wrapper.dark_theme #addBookmarkForm, #body_wrapper.dark_theme #order_form{
-  background-color: hsla(0,0%,33%);
+  background-color: hsla(0,0%,31%);
+  box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.075);
+  border: 1.5px solid rgba(255, 255, 255, 0.090);
+
 }
 
 .heading {
