@@ -14,7 +14,7 @@ html, body{
   background-color: hsl(0,0%,94%);
 }
 #body_wrapper.dark_theme{
-  background-color: hsl(0, 0%, 9%);
+  background-color: hsl(0, 0%, 9.5%);
 }
 .mainFlexible-item {
   background-color: white;
@@ -27,7 +27,7 @@ html, body{
 }
 
 #body_wrapper.dark_theme .mainFlexible-item{
-  background-color: hsla(0,0%,35%);
+  background-color: hsla(0,0%,33%);
   
 }
 
@@ -106,7 +106,7 @@ body {
   max-width: 600px;
 }
 #body_wrapper.dark_theme #addBookmarkForm, #body_wrapper.dark_theme #order_form{
-  background-color: hsla(0,0%,35%);
+  background-color: hsla(0,0%,33%);
 }
 
 .heading {
