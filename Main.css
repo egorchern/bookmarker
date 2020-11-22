@@ -28,8 +28,10 @@ html, body{
 
 #body_wrapper.dark_theme .mainFlexible-item{
   background-color: hsla(0,0%,31%);
+  /*
   box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.075);
   border: 1.5px solid rgba(255, 255, 255, 0.090);
+  */
   
 }
 
@@ -108,8 +110,10 @@ body {
 }
 #body_wrapper.dark_theme #addBookmarkForm, #body_wrapper.dark_theme #order_form{
   background-color: hsla(0,0%,31%);
+  /*
   box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.075);
   border: 1.5px solid rgba(255, 255, 255, 0.090);
+  */
 
 }
 
